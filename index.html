@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Controle Display </title>
+  </head>
+  <body>
+    <div id="conteiner">
+      <div class="trapezio_time">
+        <span id="time_display">Time: 00:00:00</span>
+      </div>
+      <div class="speedometer" id="speed" >
+        <span id="potencia_nivel" class="potencia_nivel">100%</span>
+        <hr class="barra_nivel">
+        <span id="vel_nivel">135 Km/h</span>
+        <div id="ponter_speedometer"></div> 
+      </div>
+      <div class="display">
+        <div class="info1">
+          </span> Acelerometro</p>
+          <hr>
+          <p><span class="color-pink">➤</span> Eixo x:</p>
+          <p id="alt_display">0 m/s</p>
+          <p><span class="color-pink">➤</span> Eixo y:</p>
+          <p id="alt_display">0 m/s</p>
+          <p><span class="color-pink">➤</span> Eixo z:</p>
+          <p id="alt_display">0 m/s</p>
+        </div>
+        <div class="info1" style="margin-left:200px">
+          </span> Giroscopio</p>
+          <hr>
+          <p><span class="color-pink">➤</span> Eixo x:</p>
+          <p id="alt_display">0°</p>
+          <p><span class="color-pink">➤</span> Eixo y:</p>
+          <p id="alt_display">0 °</p>
+          <p><span class="color-pink">➤</span> Eixo z:</p>
+          <p id="alt_display">0 °</p>
+        </div>
+        <div class="info1" style="margin-top:110px;width:80%">
+          </span> BMP280</p>
+          <hr>
+          <p><span class="color-pink">➤</span> Temp:</p>
+          <p id="alt_display">0 °C</p>
+          <p><span class="color-pink">➤</span> Pressão:</p>
+          <p id="alt_display" style="margin-left:105px">0 Pa</p>
+        </div>
+      </div>
+      <div class="display" style="margin-top: 5px;height: 30px;padding:1px">
+        <p style="font-size: 3vw; margin: 8px 5px;position: absolute;">Status da ejeção:</p>
+        <p id="alt_display" style="font-size: 3vw;margin-top: 8px;margin-left: 170px;">Disabilitado</p>
+      </div>
+
+      <div class="button_container">
+        <button id="ligar">Iniciar</button>
+        <button style="display:none" id="desligar">Deslig</button>
+        <button id="turbo">Calibrar</button>
+        <button id="calib">Resetar</button>
+        <button id="nivel">Ejetar</button>
+      </div>
+    
+     <p style="width: 100%;text-align: center;">Potiguar Rocket Design</p>
+    </div>
+ 
+    
+    <script src="main.js"></script>
+  </body>
+</html>
