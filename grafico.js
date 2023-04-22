@@ -91,7 +91,20 @@ function updateRadar(distx,dist, angle){
 }
 function updateSpeedometer(percent){
 	document.getElementById('potencia_nivel').innerText=percent+"m"
-
+	let i=Math.round((26*percent)/100);
+	
+	for (let index = 0; index < 27; index++) {
+		if(index<=i){
+			document.getElementById("p"+index).setAttribute('style','fill:rgba(0, 231, 244, 0.6);filter: drop-shadow(0 0 2px rgba(0, 231, 244, 0.6));stroke:rgba(0, 231, 244, 0.6);stroke-width: 0.7px;')
+			document.getElementById("ponter_speedometer").setAttribute('style','margin-top:'+(posy[index]-4)+'px!important;margin-left:'+(posx[index]-5)+'px!important;')
+		}else{
+			
+			document.getElementById("p"+(index)).setAttribute('style','fill: rgb(92, 85, 85);')
+		
+		}
+	}
+	if(i<26)document.getElementById("p"+(i+1)).setAttribute('style','fill: rgb(255, 0, 85);')
+	
 }
 function updateAltimeter(alt){
 	/*5px -max 295px -min */
@@ -151,52 +164,3 @@ function contagem(){
 	}
 }
 //-----------------------------------------------------------------------
-
-
-  // Data-----
-  const data = new Array(500).fill({ x: null, y: null });
-  let prev = 0;
-  
-  // Config-----
-  const config = {
-	  type: 'line',
-	  data: {
-		  datasets: [{
-				  borderColor: "#00FFFF",
-				  borderWidth: 1,
-				  radius: 0.1,
-				  data: data,
-			  }]
-	  },
-	  options: {
-		  animation:false,
-		  interaction: {
-			  intersect: false
-		  },
-		  plugins: {
-			  legend: false
-		  },
-		  scales: {
-			  x: {
-				  type: 'linear',
-				  stepSize: 10
-			  }
-		  }
-	  }
-  };
-  // Config-----
-  var myChart = new Chart(document.getElementById('myChart'),config);
-
-  setInterval(() => {
-	const newDataPoint = {
-	  x: data.length-500,
-	  y: Math.random()*1000,
-	};
-	data.push(newDataPoint);
-	data.shift();
-	data.push(newDataPoint);
-	myChart.options.scales.x.max = data[data.length - 1].x;
-	myChart.options.scales.x.min = data[data.length - 500].x;
-	myChart.update({duration: 0.5});
-  }, 50);
-
